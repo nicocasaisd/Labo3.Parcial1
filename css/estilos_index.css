@@ -1,0 +1,23 @@
+
+
+#body-index{
+    background-image: url("../media/img/pokemon.png");
+    /* background-size: contain; */
+    background-size:cover;
+    /* background-size: 100%; */
+    background-repeat:repeat;
+    background-position:center;
+}
+main{
+    display: flex;
+    flex-direction: row;
+}
+article{
+    /* width: 250px;
+    height: 400px; */
+    padding: 40px;
+    margin: 30px;
+    background-color:beige;
+    display:inline-block;
+    align-items: center;
+}

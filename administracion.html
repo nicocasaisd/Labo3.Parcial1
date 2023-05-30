@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/estilos.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="icon" href="./media/icons/globo.svg" type="image/x-icon" />
+    <script src="./js/scripts.js" defer type="module"></script>
+    <title>Administración</title>
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <img id="logo-nav" src="./media/img/autos.png" alt="logo" />
+        <ul>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Anuncios</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+      <h1>Administración</h1>
+      <img id="img-header" src="./media/img/headear.jpg" alt="header" />
+    </header>
+
+    <!-- <i class="fa-solid fa-tire" style="color: #fcfcfc;"></i> -->
+    <main>
+      <section class="seccion-formulario">
+        <h2>Llena el formulario de Alta</h2>
+        <fieldset>
+          <legend>Información del Anuncio</legend>
+          <form>
+            <p>
+              <span> Título:</span>
+              <input
+                class="input-text"
+                type="text"
+                name="txtTitulo"
+                placeholder="Título"
+              />
+            </p>
+
+            <!-- <fieldset> -->
+            <span> Transacción:</span>
+            <!-- <legend>Transacción:</legend> -->
+            <input type="radio" name="rdoTransaccion" value="Venta" checked />
+            Venta
+            <br />
+            <input type="radio" name="rdoTransaccion" value="Alquiler" />
+            Alquiler
+            <br />
+            <!-- </fieldset> -->
+
+            <p>
+              <span> Descripción:</span>
+              <input
+                class="input-text"
+                type="text"
+                name="txtDescripcion"
+                placeholder="Descripción"
+              />
+            </p>
+            <p>
+              <span>Precio:</span>
+              <input
+                class="input-number"
+                type="number"
+                name="nmbPrecio"
+                placeholder="Precio"
+                min="0"
+              />
+            </p>
+            <p class="p-input-number">
+              <i class="fa-solid fa-user"></i>
+              <span>Cantidad de baños:</span>
+              <input
+                class="input-number"
+                type="number"
+                name="nmbBanios"
+                placeholder="Baños"
+                min="1"
+                max="5"
+              />
+            </p>
+            <p class="p-input-number">
+              <i class="fa-solid fa-book"></i>
+              <span> Cantidad de autos:</span>
+              <input
+                class="input-number"
+                type="number"
+                name="nmbAutos"
+                placeholder="Autos"
+                min="0"
+                max="5"
+              />
+            </p>
+            <p class="p-input-number">
+              <i class="fa-regular fa-compass"></i>
+              <span>Cantidad de dormitorios:</span>
+              <input
+                class="input-number"
+                type="number"
+                name="nmbDormitorios"
+                placeholder="Dormitorios"
+                min="1"
+                max="12"
+              />
+            </p>
+            <p class="botones">
+              <button type="submit" value="Guardar" id="btnGuardar">
+                <i class="fa-regular fa-floppy-disk"></i> Guardar
+              </button>
+              <!-- <input type="submit" value="Guardar" id="btnGuardar" /> -->
+              <input type="button" value="Eliminar" id="btnEliminar" disabled />
+              <input type="button" value="Cancelar" id="btnCancelar" />
+              <input type="hidden" name="txtId" />
+            </p>
+            <div id="mensaje-formulario"></div>
+          </form>
+        </fieldset>
+      </section>
+
+      <section class="seccion-tabla">
+        <h2>Propiedades en Venta y Alquiler</h2>
+        <img
+          id="spinner"
+          src="./media/Spinner-1s-200px.gif"
+          alt="cargando"
+          hidden
+        />
+        <div id="tabla"></div>
+      </section>
+    </main>
+    <footer>
+      <nav>
+        <ul>
+          <li><a href="#">Nosotros</a></li>
+          <li><a href="#">Anuncios</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+        <p>Todos los derechos reservados 2023 ©</p>
+      </nav>
+    </footer>
+  </body>
+</html>
