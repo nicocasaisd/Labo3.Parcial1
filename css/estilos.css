@@ -28,6 +28,7 @@ td {
 }
 
 th {
+  background-color:bisque;
   text-transform: capitalize;
 }
 
@@ -91,6 +92,7 @@ nav {
 }
 nav > ul {
   display: flex;
+  /* display:block; */
   list-style-type: none;
 }
 nav > ul > li > a {
@@ -127,7 +129,7 @@ h1 {
 
 /* MEDIA SCREEN */
 @media screen and (max-width: 600px) {
-  .p-input-number>*{
-    display: block;
+  nav > ul {
+    display:block;
   }
 }

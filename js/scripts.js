@@ -12,6 +12,22 @@ import {
 } from "./validaciones.js";
 import { actualizarTabla } from "./tabla.js";
 
+
+// Opciones
+
+const armas_const = ["Armadura","Espada", "Martillo", "Escudo", "Arma de fuego","Flechas"];
+actualizarStorage("armas", armas_const);
+
+const $lista = document.getElementById("select-arma");
+const armas = JSON.parse(localStorage.getItem("armas")) || [];
+
+armas.forEach( (el, index) => {
+  // console.log(el);
+  let option = document.createElement("option");
+  option.textContent = el;
+  option.value = index+1;
+  $lista.appendChild(option);
+});
 // Obtengo punteros
 
 const $formulario = document.forms[0];
@@ -67,8 +83,8 @@ $formulario.addEventListener("submit", (e) => {
     lstArma
   } = $formulario;
   // Validaciones
-
-  console.log(txtNombre.value, rdoEditorial.value, txtAlias.value, rdoFuerza.value, lstArma.value)
+console.log("Validacion");
+  console.log(txtNombre.value, txtAlias.value, rdoEditorial.value, rdoFuerza.value, lstArma.value)
   if (
     !(
       validarString(txtNombre.value) &&
@@ -85,7 +101,7 @@ $formulario.addEventListener("submit", (e) => {
     document.getElementById("mensaje-formulario").textContent =
       "";
     // ABM
-    console.log(txtId.value);
+    // console.log(txtId.value);
     if (txtId.value === "") {
       console.log("Alta de elemento..");
       const newElement = new SuperHeroe(

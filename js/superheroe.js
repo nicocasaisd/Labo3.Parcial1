@@ -1,4 +1,4 @@
-export function SuperHeroe(id, nombre, editorial, alias, fuerza, arma)
+export function SuperHeroe(id, nombre, alias, editorial, fuerza, arma)
 {
     this.id = id;
     this.nombre = nombre;
