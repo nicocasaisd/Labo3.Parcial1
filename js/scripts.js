@@ -1,4 +1,4 @@
-import { SuperHeroe } from "./superheroe.js";
+import { SuperHeroe } from "./clases.js";
 import {
   handlerCreate,
   handlerUpdate,
@@ -91,7 +91,7 @@ console.log("Validacion");
       validarOpciones(rdoEditorial.value, "Marvel", "DC") &&
       validarString(txtAlias.value) &&
       validarRango(rdoFuerza.value, 0, 100) &&
-      validarRango(lstArma.value, 1, 3)
+      validarRango(lstArma.value, 1, armas.length)
 
     )
   ) {

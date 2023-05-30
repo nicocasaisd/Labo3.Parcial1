@@ -1,59 +1,64 @@
-import {Anuncio_Auto} from "./Anuncio.js";
+import {SuperHeroe} from "./clases.js";
 
 
-const $anuncios = document.getElementById("anuncios");
+const $superheroes = document.getElementById("superheroes");
 const array = JSON.parse(localStorage.getItem("array")) || [];
+const armas = JSON.parse(localStorage.getItem("armas"))
 
-// console.log(array);
+console.log(array);
 
 array.forEach( (el, index) => {
     // console.log(el);
-    let anuncio = new Anuncio_Auto(el.id, el.titulo, el.transaccion, el.descripcion, el.precio, el.numBanios, el.numDormitorios, el.numAutos);
-    $anuncios.appendChild(generarArticulo(anuncio));
+    let superheroe = new SuperHeroe(el.id, el.nombre, el.alias, el.editorial, el.fuerza, el.arma);
+    $superheroes.appendChild(generarArticulo(superheroe));
     console.log(index);
 });
 
-function generarArticulo(anuncio)
+function generarArticulo(superheroe)
 {
     const article = document.createElement("article");
 
-    console.log(anuncio);
-    // Titulos
-    const titulo = document.createElement("h2");
-    // console.log(anuncio.titulo);
-    titulo.textContent = anuncio.titulo;
-    article.appendChild(titulo);
+    console.log(superheroe);
+    // nombres
+    const nombre = document.createElement("h2");
+    // console.log(superheroe.nombre);
+    nombre.textContent = superheroe.nombre;
+    article.appendChild(nombre);
 
-    // Descripcion
-    const descripcion = document.createElement("p");
-    descripcion.textContent = anuncio.descripcion;
-    article.appendChild(descripcion);
+    // alias
+    const alias = document.createElement("p");
+    alias.textContent = superheroe.alias;
+    article.appendChild(alias);
 
-    // Precio
-    const precio = document.createElement("p");
-    precio.textContent = "U$S " + anuncio.precio;
-    article.appendChild(precio);
+    // editorial
+    const editorial = document.createElement("p");
+    editorial.textContent = superheroe.editorial;
+    article.appendChild(editorial);
+    // Icono
+    editorial.appendChild(crearIcono(' <i class="fa-solid fa-book"></i>'));
 
     //Baños
-    const numBanios = document.createElement("p");
-    numBanios.textContent = anuncio.numBanios;
+    const fuerza = document.createElement("p");
+    fuerza.textContent = superheroe.fuerza;
     // Icono
-    numBanios.appendChild(crearIcono(' <i class="fa-regular fa-compass"></i>'));
+    fuerza.appendChild(crearIcono(' <i class="fa-solid fa-dumbbell"></i>'));
     
-    article.appendChild(numBanios);
+    
+    article.appendChild(fuerza);
 
     //Autos
-    const numAutos = document.createElement("p");
-    numAutos.textContent = anuncio.numAutos;
+    const arma = document.createElement("p");
+
+    arma.textContent = armas[superheroe.arma-1];
     // Icono
-    numAutos.appendChild(crearIcono(' <i class="fa-regular fa-user"></i>'));
+    arma.appendChild(crearIcono(' <i class="fa-regular fa-compass"></i>'));
     
-    article.appendChild(numAutos);
+    article.appendChild(arma);
 
     // Boton
     // const boton = document.createElement("button");
     // boton.textContent = "Ver Objeto";
-    article.appendChild(crearBoton("Ver Objeto"));
+    // article.appendChild(crearBoton("Ver Objeto"));
 
     // console.log(article);
 

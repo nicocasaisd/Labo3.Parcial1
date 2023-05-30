@@ -35,7 +35,7 @@ const crearCabecera = (elemento) => {
       case "id":
         continue;
         break;
-      case "numBanios":
+/*       case "numBanios":
         heading = "Cantidad de Baños";
         break;
         case "numAutos":
@@ -43,7 +43,7 @@ const crearCabecera = (elemento) => {
         break;
         case "numDormitorios":
         heading = "Cantidad de Dormitorios";
-        break;
+        break; */
       default:
         break;
     }
