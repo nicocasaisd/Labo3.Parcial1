@@ -7,13 +7,28 @@ const armas = JSON.parse(localStorage.getItem("armas"))
 
 console.log(array);
 
-array.forEach( (el, index) => {
-    // console.log(el);
-    let superheroe = new SuperHeroe(el.id, el.nombre, el.alias, el.editorial, el.fuerza, el.arma);
-    $superheroes.appendChild(generarArticulo(superheroe));
-    console.log(index);
+document.getElementById("spinner").hidden = false;
+
+setTimeout( () => {
+  console.log("Delay 2000ms");
+  crearTodos(array)
+
+  document.getElementById("spinner").hidden = true;
+}, 2000
+);
+
+;
+function crearTodos(array)
+{
+
+    array.forEach( (el, index) => {
+        // console.log(el);
+        let superheroe = new SuperHeroe(el.id, el.nombre, el.alias, el.editorial, el.fuerza, el.arma);
+        $superheroes.appendChild(generarArticulo(superheroe));
+        console.log(index);
 });
 
+}
 function generarArticulo(superheroe)
 {
     const article = document.createElement("article");
@@ -55,11 +70,6 @@ function generarArticulo(superheroe)
     
     article.appendChild(arma);
 
-    // Boton
-    // const boton = document.createElement("button");
-    // boton.textContent = "Ver Objeto";
-    // article.appendChild(crearBoton("Ver Objeto"));
-
     // console.log(article);
 
     return article;
@@ -72,12 +82,4 @@ function crearIcono(innerHTML)
     icono.innerHTML = innerHTML;
 
     return icono;
-}
-
-function crearBoton(text)
-{
-    const boton = document.createElement("button");
-    boton.textContent = text;
-
-    return boton;
 }
