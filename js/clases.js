@@ -24,3 +24,4 @@ export class SuperHeroe extends Personaje {
     this.arma = arma;
   }
 }
+

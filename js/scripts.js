@@ -1,4 +1,4 @@
-import { SuperHeroe } from "./clases.js";
+import { SuperHeroe } from "./superheroe.js";
 import {
   handlerCreate,
   handlerUpdate,
