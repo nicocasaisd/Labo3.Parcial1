@@ -36,86 +36,61 @@
     <!-- <i class="fa-solid fa-tire" style="color: #fcfcfc;"></i> -->
     <main>
       <section class="seccion-formulario">
-        <h2>Llena el formulario de Alta</h2>
+        <h2>CRUD Heroes</h2>
         <fieldset>
-          <legend>Información del Anuncio</legend>
+          <legend>Información del SuperHeroe</legend>
           <form>
             <p>
-              <span> Título:</span>
+              <span> Nombre:</span>
               <input
                 class="input-text"
                 type="text"
-                name="txtTitulo"
-                placeholder="Título"
+                name="txtNombre"
+                placeholder="Nombre"
               />
             </p>
-
+            <p>
+              <span> Alias:</span>
+              <input
+                class="input-text"
+                type="text"
+                name="txtAlias"
+                placeholder="Alias"
+              />
+            </p>
+            
             <!-- <fieldset> -->
-            <span> Transacción:</span>
+            <span> Editorial:</span>
             <!-- <legend>Transacción:</legend> -->
-            <input type="radio" name="rdoTransaccion" value="Venta" checked />
-            Venta
+            <input type="radio" name="rdoEditorial" value="Marvel" checked />
+            Marvel
             <br />
-            <input type="radio" name="rdoTransaccion" value="Alquiler" />
-            Alquiler
+            <input type="radio" name="rdoEditorial" value="DC" />
+            DC
             <br />
             <!-- </fieldset> -->
 
+            
             <p>
-              <span> Descripción:</span>
-              <input
-                class="input-text"
-                type="text"
-                name="txtDescripcion"
-                placeholder="Descripción"
-              />
-            </p>
-            <p>
-              <span>Precio:</span>
+              <span>Fuerza:</span>
               <input
                 class="input-number"
-                type="number"
-                name="nmbPrecio"
-                placeholder="Precio"
+                type="range"
+                name="rdoFuerza"
+                placeholder="Fuerza"
                 min="0"
+                max="100"
               />
             </p>
             <p class="p-input-number">
-              <i class="fa-solid fa-user"></i>
-              <span>Cantidad de baños:</span>
-              <input
-                class="input-number"
-                type="number"
-                name="nmbBanios"
-                placeholder="Baños"
-                min="1"
-                max="5"
-              />
+              <select name="lstArma" id="select-arma">
+                <option value="1">Musculos</option>
+                <option value="2">Armadura</option>
+                <option value="3">Lazo</option>
+              </select>
+              
             </p>
-            <p class="p-input-number">
-              <i class="fa-solid fa-book"></i>
-              <span> Cantidad de autos:</span>
-              <input
-                class="input-number"
-                type="number"
-                name="nmbAutos"
-                placeholder="Autos"
-                min="0"
-                max="5"
-              />
-            </p>
-            <p class="p-input-number">
-              <i class="fa-regular fa-compass"></i>
-              <span>Cantidad de dormitorios:</span>
-              <input
-                class="input-number"
-                type="number"
-                name="nmbDormitorios"
-                placeholder="Dormitorios"
-                min="1"
-                max="12"
-              />
-            </p>
+      
             <p class="botones">
               <button type="submit" value="Guardar" id="btnGuardar">
                 <i class="fa-regular fa-floppy-disk"></i> Guardar

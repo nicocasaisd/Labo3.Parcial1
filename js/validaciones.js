@@ -6,6 +6,6 @@ export function validarRango(num, min, max) {
   return num >= min && num <= max;
 }
 
-export function validarOpciones(string, opc1, opc2) {
-  return string === opc1 || string === opc2;
+export function validarOpciones(string, opc1, opc2, opc3) {
+  return string === opc1 || string === opc2 || string === opc3;
 }

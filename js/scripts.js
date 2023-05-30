@@ -1,4 +1,4 @@
-import { Propiedad } from "./propiedad.js";
+import { SuperHeroe } from "./superheroe.js";
 import {
   handlerCreate,
   handlerUpdate,
@@ -26,6 +26,7 @@ const $btnCancelar = document.getElementById("btnCancelar");
 // Mensaje
 // $mensajeFormulario = document.getElementById("mensaje-formulario")
 
+console.log(array);
 if (array.length > 0) actualizarTabla($tabla, array);
 
 // WINDOW CLICK
@@ -40,18 +41,17 @@ window.addEventListener("click", (e) => {
     console.log(selectedElement);
   }
 });
+
 // console.log($formulario);
 // $formulario.txtId.value = "12";
 
 function cargarElementoEnFormulario(formulario, elemento) {
   formulario.txtId.value = elemento.id;
-  formulario.txtTitulo.value = elemento.titulo;
-  formulario.rdoTransaccion.value = elemento.transaccion;
-  formulario.txtDescripcion.value = elemento.descripcion;
-  formulario.nmbPrecio.value = elemento.precio;
-  formulario.nmbBanios.value = elemento.numBanios;
-  formulario.nmbAutos.value = elemento.numAutos;
-  formulario.nmbDormitorios.value = elemento.numDormitorios;
+  formulario.txtNombre.value = elemento.nombre;
+  formulario.rdoEditorial.value = elemento.editorial;
+  formulario.txtAlias.value = elemento.alias;
+  formulario.rdoFuerza.value = elemento.fuerza;
+  formulario.lstArma.value = elemento.arma;
 }
 
 $formulario.addEventListener("submit", (e) => {
@@ -60,65 +60,60 @@ $formulario.addEventListener("submit", (e) => {
   // Desestructuracion de formulario
   const {
     txtId,
-    txtTitulo,
-    rdoTransaccion,
-    txtDescripcion,
-    nmbPrecio,
-    nmbBanios,
-    nmbAutos,
-    nmbDormitorios,
+    txtNombre,
+    txtAlias,
+    rdoEditorial,
+    rdoFuerza,
+    lstArma
   } = $formulario;
   // Validaciones
+
+  console.log(txtNombre.value, rdoEditorial.value, txtAlias.value, rdoFuerza.value, lstArma.value)
   if (
     !(
-      validarString(txtTitulo.value) &&
-      validarOpciones(rdoTransaccion.value, "Venta", "Alquiler") &&
-      validarString(txtDescripcion.value) &&
-      validarRango(nmbPrecio.value, 0, 999999999) &&
-      validarRango(nmbBanios.value, 1, 5) &&
-      validarRango(nmbAutos.value, 0, 5) &&
-      validarRango(nmbDormitorios.value, 1, 12)
+      validarString(txtNombre.value) &&
+      validarOpciones(rdoEditorial.value, "Marvel", "DC") &&
+      validarString(txtAlias.value) &&
+      validarRango(rdoFuerza.value, 0, 100) &&
+      validarRango(lstArma.value, 1, 3)
+
     )
   ) {
-    // console.log("Datos correctos");
     document.getElementById("mensaje-formulario").textContent =
       "Se han ingresado datos inválidos.";
   } else {
     document.getElementById("mensaje-formulario").textContent =
       "";
     // ABM
+    console.log(txtId.value);
     if (txtId.value === "") {
       console.log("Alta de elemento..");
-      const newElement = new Propiedad(
+      const newElement = new SuperHeroe(
         Date.now(),
-        txtTitulo.value,
-        rdoTransaccion.value,
-        txtDescripcion.value,
-        parseInt(nmbPrecio.value),
-        parseInt(nmbBanios.value),
-        parseInt(nmbAutos.value),
-        parseInt(nmbDormitorios.value)
+        txtNombre.value,
+        txtAlias.value,
+        rdoEditorial.value,
+        parseInt(rdoFuerza.value),
+        parseInt(lstArma.value),
       );
       handlerCreate(array, newElement, $tabla);
     } else {
       console.log("Actualización de elemento..");
-      const editElement = new Propiedad(
+      const editElement = new SuperHeroe(
         parseInt(txtId.value),
-        txtTitulo.value,
-        rdoTransaccion.value,
-        txtDescripcion.value,
-        parseInt(nmbPrecio.value),
-        parseInt(nmbBanios.value),
-        parseInt(nmbAutos.value),
-        parseInt(nmbDormitorios.value)
+        txtNombre.value,
+        txtAlias.value,
+        rdoEditorial.value,
+        parseInt(rdoFuerza.value),
+        parseInt(lstArma.value),
       );
       handlerUpdate(array, editElement, $tabla);
     }
     $formulario.reset();
   }
-  //   console.log("Titulo", txtTitulo.value);
+  //   console.log("nombre", txtNombre.value);
   //   console.log("ID", txtId.value);
-  //   console.log("Transaccion", rdoTransaccion.value);
+  //   console.log("Transaccion", rdoEditorial.value);
   //   console.log("Dormitorios", nmbDormitorios.value);
 });
 
@@ -133,7 +128,7 @@ $btnEliminar.addEventListener("click", (e) => {
 $btnCancelar.addEventListener("click", (e) => {
   console.log("Cancelando...");
   document.getElementById("mensaje-formulario").textContent = "";
-  $formulario.txtId.value = -1;
+  $formulario.txtId.value = "";
   $formulario.reset();
   $btnEliminar.disabled = true;
   $btnGuardar.value = "Guardar";
