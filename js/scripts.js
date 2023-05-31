@@ -52,7 +52,8 @@ window.addEventListener("click", (e) => {
     const selectedElement = array.find((el) => el.id == id);
     cargarElementoEnFormulario($formulario, selectedElement);
     $btnEliminar.disabled = false;
-    $btnGuardar.value = "Modificar";
+    // $btnGuardar.value = "Modificar";
+    $btnGuardar.textContent = "Modificar";
 
     console.log(selectedElement);
   }
@@ -147,5 +148,6 @@ $btnCancelar.addEventListener("click", (e) => {
   $formulario.txtId.value = "";
   $formulario.reset();
   $btnEliminar.disabled = true;
-  $btnGuardar.value = "Guardar";
+  // $btnGuardar.value = "Guardar";
+  $btnGuardar.textContent = "Guardar";
 });
